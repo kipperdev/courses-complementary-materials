@@ -62,7 +62,7 @@ Exemplos:
 - Gmail
 - Aftersale troque fácil
 
-![paas.jpeg](https://github.com/kipperdev/courses-complementary-materials/blob/main/images/paas.jpeg?raw=true)
+![paas.jpeg](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/cloud/paas.jpeg?raw=true)
 
 ## Redes
 
