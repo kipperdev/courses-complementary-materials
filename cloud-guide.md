@@ -1,19 +1,16 @@
 # Conceitos de cloud
 
-## Cloud Computing
-
 Antes tinha os server room (DC, datacenter). Dentro dessas salas tinham vários servidores
 
 Ai tínhamos a network que conectava esses servidores
 
 Era caro manter todos esses servidores (eles esquentam, precisam ser bem protegidos, demora pra montar…)
 
-<aside>
-📌 Os nossos serviços não rodam mais em servidores locais da empresa, e sim é utilizado recursos de empresas como a AWS para hospedar seus serviços remotamente. Dessa forma, em empresas não precisavam mais possuir servidores físicos para conseguir ter seus serviços rodando.
 
-</aside>
+> 📌 Os nossos serviços não rodam mais em servidores locais da empresa, e sim é utilizado recursos de empresas como a AWS para hospedar seus serviços remotamente. Dessa forma, em empresas não precisavam mais possuir servidores físicos para conseguir ter seus serviços rodando.
 
-### Benefícios
+
+## Benefícios
 
 - velocidade para implementar e desenvolver novas soluções
 - reduz custo
@@ -29,7 +26,7 @@ Era caro manter todos esses servidores (eles esquentam, precisam ser bem protegi
 
 ## Tipos de cloud
 
-**IaaS**
+### IaaS
 
 Infra as a Service
 
@@ -39,7 +36,7 @@ Exemplo:
 
 - AWS EC2
 
-**PaaS**
+### PaaS
 
 Platform as a Service
 
@@ -52,7 +49,7 @@ Exemplos:
 
 As funções Lambda da AWS podem parecer Paas porém são FaaS (Function as a service)
 
-**SaaS**
+### SaaS
 
 Software as a Service
 
@@ -65,7 +62,7 @@ Exemplos:
 - Gmail
 - Aftersale troque fácil
 
-![paas.jpeg](/images/paas.jpeg)
+![paas.jpeg](https://github.com/kipperdev/courses-complementary-materials/blob/main/images/paas.jpeg?raw=true)
 
 ## Redes
 
@@ -79,7 +76,7 @@ Mas o seu servidor e seu serviço rodando dentro desses provedores É SEU (ningu
 
 Custo mais baixo
 
-→ ***A AWS seus serviços de Cloud ao público (as provedoras de cloud oferecem ao público)***
+> ***A AWS seus serviços de Cloud ao público (as provedoras de cloud oferecem ao público)***
 
 ### Hybrid cloud
 
