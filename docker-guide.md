@@ -1,7 +1,3 @@
-# Intensivão Docker
-
-[INTENSIVÃO DOCKER EM 2H ⏰ | Curso gratuito (docker push, docker pull, docker compose, dockerfile...)](https://youtube.com/live/DQjZyHwci-0)
-
 # Docker
 
 **Docker** é uma plataforma de virtualização de containers que permite empacotar, distribuir e executar aplicações de forma isolada e consistente. Diferente das máquinas virtuais tradicionais, containers Docker compartilham o kernel do sistema operacional host, tornando-os mais leves e eficientes.
