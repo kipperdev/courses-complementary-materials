@@ -84,7 +84,7 @@ nginx
 
 Agora ao abrir http://localhost:8080/ na porta 8080 no seu navegador, você deveria ver uma página como essa:
 
-![Screenshot 2025-08-02 at 11.16.47.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.16.47.png)
+![Screenshot 2025-08-02 at 11.16.47.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.16.47.png?raw=true)
 
 ## Arquivo de configuração
 
@@ -92,7 +92,7 @@ Todo servidor de nginx é configurado através de um arquivo de configuração c
 
 Quando usamos o comando `nginx -h` para verificar os detalhes do Nginx que acabamos de instalar na nossa máquina, vamos observar o local onde ele foi instalado e onde está o arquivo de configuração default que nosso servidorzinho  está usando
 
-![Screenshot 2025-08-02 at 11.17.34.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.17.34.png)
+![Screenshot 2025-08-02 at 11.17.34.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.17.34.png?raw=true)
 
 Se abrirmos esse arquivo de configuração em um editor de código, por exemplo com o vscode
 
@@ -211,7 +211,7 @@ Dentro dessa pasta existe outro arquivo de configuração que incluí servidores
 
 Você vai obter essa pasta raiz executando o comando `nginx -h` e vendo onde ele foi instalado no seu computador
 
-![Screenshot 2025-08-02 at 11.25.52.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.25.52.png)
+![Screenshot 2025-08-02 at 11.25.52.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.25.52.png?raw=true)
 
 </aside>
 
@@ -223,7 +223,7 @@ E dentro dessa pasta vamos navegar/criar a pasta server, e então criar um arqui
  code .
 ```
 
-![Screenshot 2025-08-02 at 11.26.54.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.26.54.png)
+![Screenshot 2025-08-02 at 11.26.54.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.26.54.png?raw=true)
 
 Dentro desse arquivo de configuração vamos apontar para uma pasta nova que contenha a nossa página personalizada
 
@@ -256,7 +256,7 @@ nginx -s reload
 
 E acessar a porta `3000`  que foi onde colocamos esse nosso arquivo novo de configuração para ouvir
 
-![Screenshot 2025-08-02 at 11.39.22.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.39.22.png)
+![Screenshot 2025-08-02 at 11.39.22.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.39.22.png?raw=true)
 
 ## Configurando um Proxy Reverso
 
