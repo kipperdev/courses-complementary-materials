@@ -138,15 +138,13 @@ http {
 
 ```
 
-<aside>
-🚨
 
-**ATENÇÃO:** Eu omiti as linhas comentadas que vem por padrão, para facilitar nossa visualização das configurações que estão sendo aplicadas. 
+> 🚨 **ATENÇÃO:** Eu omiti as linhas comentadas que vem por padrão, para facilitar nossa visualização das configurações que estão sendo aplicadas. 
 Os comentários que vem por padrão no arquivo nginx.conf servem para te guiar para fazer configurações extras ou novas.
+
 Exemplo:
 
-```
-
+```yaml
 #user  nobody;
 worker_processes  1;
 
@@ -154,8 +152,6 @@ worker_processes  1;
 #error_log  logs/error.log  notice;
 #error_log  logs/error.log  info;
 ```
-
-</aside>
 
 ## Entendendo as configurações
 
@@ -206,14 +202,9 @@ Dentro dessa pasta existe outro arquivo de configuração que incluí servidores
  cd /opt/homebrew/etc/nginx/
 ```
 
-<aside>
-🚨
-
-Você vai obter essa pasta raiz executando o comando `nginx -h` e vendo onde ele foi instalado no seu computador
+> 🚨 Você vai obter essa pasta raiz executando o comando `nginx -h` e vendo onde ele foi instalado no seu computador
 
 ![Screenshot 2025-08-02 at 11.25.52.png](https://github.com/kipperdev/courses-complementary-materials/blob/main/extra/nginx/Screenshot_2025-08-02_at_11.25.52.png?raw=true)
-
-</aside>
 
 E dentro dessa pasta vamos navegar/criar a pasta server, e então criar um arquivo chamado `default.conf`
 
@@ -337,12 +328,7 @@ http {
 }
 ```
 
-<aside>
-🚨
-
-ATENÇÃO: Note que é importante manter na configuração do proxy_pass a barra `/` no final da url Pois dessa maneira o nginx não irá incluir o prefixo `/api` ou `/auth` quando for repassar a requisição para cada servidor correspondente. Ele vai apenas agregar o resto da rota
-
-</aside>
+> ATENÇÃO: Note que é importante manter na configuração do proxy_pass a barra `/` no final da url Pois dessa maneira o nginx não irá incluir o prefixo `/api` ou `/auth` quando for repassar a requisição para cada servidor correspondente. Ele vai apenas agregar o resto da rota
 
 ### Exemplo:
 
