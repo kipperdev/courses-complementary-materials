@@ -19,6 +19,8 @@
 - Portas a serem expostas
 - Comando padrão a ser executado quando o container iniciar
 
+Aqui o código:
+
 ```bash
 FROM node:14
 WORKDIR /app
