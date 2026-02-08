@@ -19,7 +19,7 @@
 - Portas a serem expostas
 - Comando padrão a ser executado quando o container iniciar
 
-```
+```bash
 FROM node:14
 WORKDIR /app
 COPY package*.json ./
