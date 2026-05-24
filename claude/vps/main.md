@@ -53,6 +53,11 @@ Siga o link que aparecer no terminal para autorizar o acesso. Depois disso, o Cl
 
 ---
 
+> ✨ Desconto na VPS da Hostinger para rodar o Claude ✨
+https://hostinger.com/kipperclaude
+
+---
+
 # `/loop` vs `/schedule` — qual usar?
 
 ### `/loop` — repetição contínua na sessão atual
@@ -108,6 +113,11 @@ Importante: o agente remoto **não tem acesso à sua máquina local nem à sua V
 
 ---
 
+> ✨ Desconto na VPS da Hostinger para rodar o Claude ✨
+https://hostinger.com/kipperclaude
+
+---
+
 ## Remote Control — controlar o Claude na VPS de fora
 
 O **remote control** permite acionar ou controlar uma sessão do Claude rodando na VPS sem precisar estar conectado no terminal. Útil para disparar tarefas pontualmente de qualquer lugar.
@@ -156,3 +166,10 @@ Isso abre uma sessão local que está, na verdade, controlando o Claude rodando 
 - Disparar uma tarefa no Claude da VPS sem precisar abrir SSH manualmente
 - Usar a interface local (ou IDE) enquanto o processamento pesado acontece na VPS
 - Integrar com webhooks: um endpoint recebe uma chamada e dispara um comando no Claude via SSH
+
+---
+
+> ✨ Aproveite nosso desconto na VPS da Hostinger para rodar o Claude ✨
+https://hostinger.com/kipperclaude
+
+---
