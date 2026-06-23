@@ -203,7 +203,7 @@ public class SecurityConfiguration {
 
 > 🎥 No vídeo: [35:30](https://youtu.be/5w-YCcOjPD0?t=2130s)
 
-No login, montamos um `UsernamePasswordAuthenticationToken` e o entregamos ao `AuthenticationManager`, que valida as credenciais (comparando o hash). No registro, a senha é **criptografada com BCrypt antes de salvar** — nunca guardamos a senha em texto puro:
+No login, montamos um `UsernamePasswordAuthenticationToken` e o entregamos ao `AuthenticationManager`, que valida as credenciais (comparando o hash). No registro, a senha é **criptografada com BCrypt antes de salvar**, nunca guardamos a senha em texto puro:
 
 ```java
 @RestController
@@ -273,7 +273,7 @@ public class TokenService {
 
 > 🎥 No vídeo: [00:30](https://youtu.be/LX5jaieOIAk?t=30s)
 
-**Migrations** versionam o schema do banco de dados de forma controlada e rastreável. Conforme a aplicação evolui (nova tabela, nova coluna, mudança de tipo), o banco precisa acompanhar — e queremos guardar o histórico dessas mudanças. Em vez de alterar tabelas na mão pelo terminal, descrevemos cada mudança em um arquivo versionado que roda automaticamente. A ferramenta usada na aula é o **Flyway** (com PostgreSQL); outra alternativa popular é o Liquibase.
+**Migrations** versionam o schema do banco de dados de forma controlada e rastreável. Conforme a aplicação evolui (nova tabela, nova coluna, mudança de tipo), o banco precisa acompanhar, e queremos guardar o histórico dessas mudanças. Em vez de alterar tabelas na mão pelo terminal, descrevemos cada mudança em um arquivo versionado que roda automaticamente. A ferramenta usada na aula é o **Flyway** (com PostgreSQL); outra alternativa popular é o Liquibase.
 
 ### Flyway
 
@@ -311,7 +311,7 @@ ALTER TABLE produtos ADD COLUMN ativo BOOLEAN DEFAULT TRUE;
 
 > 🎥 No vídeo: [09:30](https://youtu.be/LX5jaieOIAk?t=570s)
 
-- Na inicialização, o Flyway verifica quais migrations já foram aplicadas (ele guarda isso em uma tabela de controle que ele mesmo cria, a `flyway_schema_history`). **Nunca exclua essa tabela** — é o histórico que ele usa para saber o que já rodou.
+- Na inicialização, o Flyway verifica quais migrations já foram aplicadas (ele guarda isso em uma tabela de controle que ele mesmo cria, a `flyway_schema_history`). **Nunca exclua essa tabela**, é o histórico que ele usa para saber o que já rodou.
 - Aplica, **em ordem de versão**, apenas as que ainda não rodaram.
 - Migrations já aplicadas **nunca devem ser editadas**; para corrigir, crie uma nova versão (`V2`, `V3`, ...).
 

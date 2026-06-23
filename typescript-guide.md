@@ -10,8 +10,8 @@ O JavaScript é uma linguagem de **tipagem dinâmica em tempo de execução**: o
 
 ```javascript
 let dado = "Fernanda"; // string
-dado = 20;             // agora number — permitido em JS
-dado = [1, 2, 3];      // agora array — permitido em JS
+dado = 20;             // agora number, permitido em JS
+dado = [1, 2, 3];      // agora array, permitido em JS
 ```
 
 Isso torna o JS muito flexível, mas também abre espaço para bugs difíceis de achar: somar uma string com um array, dividir uma string por um número, etc. Esses erros só aparecem **em tempo de execução**, quando o usuário já está usando a aplicação.
@@ -24,7 +24,7 @@ Os erros típicos que o TSC pega:
 
 Por padrão, **as variáveis no TypeScript permanecem com um único tipo**. Se você declarou uma string, não pode depois guardar um número ali, nem passá-la para uma função que espera um número.
 
-> 📌 No final, **todo código TypeScript vira código JavaScript** depois de compilado, porque é o JS que roda no browser e na engine do Node. Como a tipagem é **opcional**, **todo código JavaScript também é um TypeScript válido** — por isso arquivos `.js` e `.ts` convivem no mesmo projeto.
+> 📌 No final, **todo código TypeScript vira código JavaScript** depois de compilado, porque é o JS que roda no browser e na engine do Node. Como a tipagem é **opcional**, **todo código JavaScript também é um TypeScript válido**, por isso arquivos `.js` e `.ts` convivem no mesmo projeto.
 
 ## Por que usar TypeScript?
 
@@ -36,7 +36,7 @@ Por padrão, **as variáveis no TypeScript permanecem com um único tipo**. Se v
 
 ## Instalando o TypeScript num projeto
 
-> 🎥 No vídeo: [10:25](https://youtu.be/QoqDr4H2G8U?t=625s) — partindo de um projeto JavaScript já existente (servidor Express).
+> 🎥 No vídeo: [10:25](https://youtu.be/QoqDr4H2G8U?t=625s), partindo de um projeto JavaScript já existente (servidor Express).
 
 O TypeScript é instalado como qualquer outra biblioteca do NPM, mas como **dependência de desenvolvimento** (`--save-dev`):
 
@@ -56,20 +56,20 @@ Depois de instalar, é preciso configurar. Rodando:
 npx tsc --init
 ```
 
-o compilador cria o arquivo `tsconfig.json` — um JSON com as configurações que o TSC olha antes de compilar. As opções ficam dentro de `compilerOptions`. As principais que a Fernanda destaca:
+o compilador cria o arquivo `tsconfig.json`, um JSON com as configurações que o TSC olha antes de compilar. As opções ficam dentro de `compilerOptions`. As principais que a Fernanda destaca:
 
 ```jsonc
 {
   "compilerOptions": {
-    "module": "NodeNext",   // sistema de módulos (CommonJS, ES6, NodeNext...) — deve casar com o projeto
+    "module": "NodeNext",   // sistema de módulos (CommonJS, ES6, NodeNext...), deve casar com o projeto
     "target": "ESNext",     // para qual versão do JS o código será transpilado (ES2020, ES2018...)
     "outDir": "./dist",     // diretório onde o JavaScript gerado (output) será salvo
     "rootDir": "./src",     // pasta que o compilador deve observar
     "strict": true,         // verificações mais rigorosas (recomendado em desenvolvimento)
     "esModuleInterop": true // interoperabilidade com módulos/bibliotecas de terceiros
-    // "jsx": "..."         // usado em projetos frontend com arquivos .tsx — não precisa no backend
+    // "jsx": "..."         // usado em projetos frontend com arquivos .tsx, não precisa no backend
   },
-  "exclude": ["node_modules"] // pastas ignoradas — fica FORA de compilerOptions, no nível raiz
+  "exclude": ["node_modules"] // pastas ignoradas, fica FORA de compilerOptions, no nível raiz
 }
 ```
 
@@ -89,7 +89,7 @@ npm install --save-dev @types/node     # tipos das funções nativas do Node
 npm install --save-dev @types/express  # tipos do Express
 ```
 
-> 📌 Sempre que der um problema de tipo com uma biblioteca, tente instalar o `@types` dela — provavelmente os tipos já estão mapeados e o erro some.
+> 📌 Sempre que der um problema de tipo com uma biblioteca, tente instalar o `@types` dela, provavelmente os tipos já estão mapeados e o erro some.
 
 ## Tipos primitivos
 
@@ -103,7 +103,7 @@ const nome: string = "Fernanda";   // string: dados textuais (nome, email, CPF f
 const ativo: boolean = true;       // boolean: true / false
 ```
 
-O tipo `void` representa "vazio" — usado no retorno de funções que **não retornam nada**, só executam uma operação (por exemplo, uma função que só faz `console.log`).
+O tipo `void` representa "vazio", usado no retorno de funções que **não retornam nada**, só executam uma operação (por exemplo, uma função que só faz `console.log`).
 
 ## Inferência de tipos
 
@@ -112,7 +112,7 @@ O tipo `void` representa "vazio" — usado no retorno de funções que **não re
 Você nem sempre precisa anotar o tipo: o compilador **infere** ("adivinha") o tipo a partir do valor disponível. Como, por padrão, o valor de uma variável não muda de tipo, o TS já assume o tipo do valor atual:
 
 ```typescript
-const cpf = 11111111111; // sem ": tipo" — o TS infere number
+const cpf = 11111111111; // sem ": tipo", o TS infere number
 // cpf = "111.111.111-11"; // ❌ Type 'string' is not assignable to type 'number'
 ```
 
@@ -122,7 +122,7 @@ Mesmo sem declarar o tipo explicitamente, o TypeScript protege contra a troca de
 
 > 🎥 No vídeo: [23:45](https://youtu.be/QoqDr4H2G8U?t=1425s)
 
-No JavaScript, uma função não declara o tipo dos parâmetros nem do retorno — e o TS reclama que o parâmetro "implicitly has an `any` type". Para tipar, use dois pontos na frente de cada parâmetro e, opcionalmente, no retorno:
+No JavaScript, uma função não declara o tipo dos parâmetros nem do retorno, e o TS reclama que o parâmetro "implicitly has an `any` type". Para tipar, use dois pontos na frente de cada parâmetro e, opcionalmente, no retorno:
 
 ```typescript
 function somar(a: number, b: number): number {
@@ -132,7 +132,7 @@ function somar(a: number, b: number): number {
 
 O tipo de retorno pode ser inferido: como `a` e `b` são `number`, o TS sabe que a função retorna `number` sem você declarar. Mas você pode escrevê-lo explicitamente (`: number`) quando quiser deixar claro.
 
-> 📌 `any` significa "qualquer coisa" — aceita qualquer tipo e desliga a checagem. O TS avisa quando um parâmetro fica com `any` implícito porque, usando TypeScript, o ideal é dar um tipo de verdade.
+> 📌 `any` significa "qualquer coisa", aceita qualquer tipo e desliga a checagem. O TS avisa quando um parâmetro fica com `any` implícito porque, usando TypeScript, o ideal é dar um tipo de verdade.
 
 ## Union types (união de tipos)
 
@@ -159,7 +159,7 @@ cargo = "gerente";   // ✅
 
 ## Integrando TypeScript numa aplicação Express
 
-> 🎥 No vídeo: [29:35](https://youtu.be/QoqDr4H2G8U?t=1775s) — convertendo um servidor Express de JS para TS, passo a passo.
+> 🎥 No vídeo: [29:35](https://youtu.be/QoqDr4H2G8U?t=1775s), convertendo um servidor Express de JS para TS, passo a passo.
 
 A parte prática mostra como fazer arquivos `.ts` conviverem com `.js` numa aplicação Node/Express real. A extensão do arquivo é o que define se ele é tratado como JavaScript (`.js`) ou TypeScript (`.ts`).
 
@@ -173,7 +173,7 @@ export function getAllUsers(req: Request, res: Response): void {
 }
 ```
 
-Com os tipos do Express instalados, ao digitar `res.` o editor mostra todas as funções disponíveis (`json`, `status`...). Se você escrever `res.jeson(...)` por engano, o TS já acusa: *Property 'jeson' does not exist on type 'Response'. Did you mean 'json'?* — em JavaScript puro esse erro só apareceria em tempo de execução (`res.jeson is not a function`).
+Com os tipos do Express instalados, ao digitar `res.` o editor mostra todas as funções disponíveis (`json`, `status`...). Se você escrever `res.jeson(...)` por engano, o TS já acusa: *Property 'jeson' does not exist on type 'Response'. Did you mean 'json'?*, em JavaScript puro esse erro só apareceria em tempo de execução (`res.jeson is not a function`).
 
 **2. Rodando Node com TypeScript.** O Node não executa `.ts` direto (dá *Unknown file extension*). É preciso o **ts-node** combinado com o **nodemon**:
 

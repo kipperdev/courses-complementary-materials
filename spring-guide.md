@@ -1,12 +1,12 @@
 # Curso de Java Spring | Fundamentos do Framework
 
-Spring é o framework mais usado para construir aplicações backend em Java. Antes de tudo, vale entender uma distinção: o **Spring Framework** é a base; o **Spring Boot** é um framework construído sobre ele que facilita a criação de aplicações Spring-based, abstraindo configurações extensas e habilitando o modo *"Just Run"* — você inicia o projeto e ele já está pronto e funcionando, sem configuração manual.
+Spring é o framework mais usado para construir aplicações backend em Java. Antes de tudo, vale entender uma distinção: o **Spring Framework** é a base; o **Spring Boot** é um framework construído sobre ele que facilita a criação de aplicações Spring-based, abstraindo configurações extensas e habilitando o modo *"Just Run"*, você inicia o projeto e ele já está pronto e funcionando, sem configuração manual.
 
 > 🎥 No vídeo: [00:30](https://youtu.be/YY_hf0FOIcU?t=30s)
 
 ## Criando um projeto com o Spring Initializr
 
-A forma mais simples de começar é pelo [Spring Initializr](https://start.spring.io/) — uma ferramenta online que gera rapidamente um projeto Spring Boot pronto para baixar. No site você define:
+A forma mais simples de começar é pelo [Spring Initializr](https://start.spring.io/), uma ferramenta online que gera rapidamente um projeto Spring Boot pronto para baixar. No site você define:
 
 - **Gestor de dependências**: Maven (usado no curso) ou Gradle.
 - **Versão do Spring Boot**: prefira a versão estável marcada (no vídeo, `3.3.2`).
@@ -16,9 +16,9 @@ A forma mais simples de começar é pelo [Spring Initializr](https://start.sprin
 
 Dependências adicionadas no vídeo:
 
-- **Spring Web** — módulo para construir aplicações web, incluindo APIs RESTful.
-- **Spring Boot DevTools** — ferramentas de desenvolvimento como Live Reload e fast restart.
-- **Lombok** — biblioteca para gerar código boilerplate (getters, setters, construtores) com anotações.
+- **Spring Web**: módulo para construir aplicações web, incluindo APIs RESTful.
+- **Spring Boot DevTools**: ferramentas de desenvolvimento como Live Reload e fast restart.
+- **Lombok**: biblioteca para gerar código boilerplate (getters, setters, construtores) com anotações.
 
 > 📌 O `spring-boot-starter-test` já vem por padrão, mesmo sem você adicioná-lo.
 
@@ -34,11 +34,11 @@ Depois é só clicar em **Generate**, descompactar o `.zip` e abrir na IDE (no v
 
 Entender as pastas evita o susto inicial:
 
-- **`pom.xml`** — arquivo do Maven onde ficam listadas as dependências (cada uma com sua versão).
-- **`.mvn/`** — configurações do Maven; só é mexida em projetos mais avançados.
-- **`src/main/java`** — onde fica a lógica da aplicação (suas classes).
-- **`src/main/resources`** — arquivos de configuração (`application.properties`), templates, arquivos estáticos (CSS, JS) e scripts SQL (migrations).
-- **`src/test/java`** — testes unitários. Já vem um teste padrão que só verifica se o contexto da aplicação carrega (`contextLoads`).
+- **`pom.xml`**: arquivo do Maven onde ficam listadas as dependências (cada uma com sua versão).
+- **`.mvn/`**: configurações do Maven; só é mexida em projetos mais avançados.
+- **`src/main/java`**: onde fica a lógica da aplicação (suas classes).
+- **`src/main/resources`**: arquivos de configuração (`application.properties`), templates, arquivos estáticos (CSS, JS) e scripts SQL (migrations).
+- **`src/test/java`**: testes unitários. Já vem um teste padrão que só verifica se o contexto da aplicação carrega (`contextLoads`).
 
 > 🎥 No vídeo: [05:30](https://youtu.be/YY_hf0FOIcU?t=330s)
 
@@ -63,17 +63,17 @@ A anotação **`@SpringBootApplication`** define a porta de entrada do Spring Bo
 | `@EnableAutoConfiguration` | ativa a autoconfiguração do Spring Boot (os defaults que ele aplica por você) |
 | `@ComponentScan` | escaneia o pacote atrás de componentes, services, controllers e classes de configuração para gerenciá-los |
 
-> 📌 Todo o Spring funciona em cima de **anotações** (os `@` em cima de classes, métodos e parâmetros). Elas abstraem configurações que o Spring aplica por baixo dos panos — é um *design pattern* que se popularizou muito por causa do framework.
+> 📌 Todo o Spring funciona em cima de **anotações** (os `@` em cima de classes, métodos e parâmetros). Elas abstraem configurações que o Spring aplica por baixo dos panos, é um *design pattern* que se popularizou muito por causa do framework.
 
 > 🎥 No vídeo: [09:00](https://youtu.be/YY_hf0FOIcU?t=540s)
 
 ## Controllers e a API REST
 
-A primeira classe a criar é um **Controller** — a classe que recebe requisições HTTP e monta as respostas. Marque-a com **`@RestController`**, que combina `@Controller` + `@ResponseBody`.
+A primeira classe a criar é um **Controller**, a classe que recebe requisições HTTP e monta as respostas. Marque-a com **`@RestController`**, que combina `@Controller` + `@ResponseBody`.
 
 Por que `@ResponseBody`? Um `@Controller` puro poderia renderizar uma página HTML (modelo mais antigo, com front e back juntos). Como aqui construímos uma **API REST** que só devolve dados (JSON/XML) no corpo da resposta, usamos `@RestController`.
 
-> 📌 **Stateless vs stateful**: APIs REST são *stateless* — o servidor não guarda o estado do cliente, então cada requisição precisa enviar tudo que a API precisa (ex.: um token de autenticação). Numa API *stateful*, o servidor mantém o estado de cada cliente entre requisições. A instrutora frisa: entenda o *porquê*, não só replique anotações.
+> 📌 **Stateless vs stateful**: APIs REST são *stateless*, o servidor não guarda o estado do cliente, então cada requisição precisa enviar tudo que a API precisa (ex.: um token de autenticação). Numa API *stateful*, o servidor mantém o estado de cada cliente entre requisições. A instrutora frisa: entenda o *porquê*, não só replique anotações.
 
 ```java
 @RestController
@@ -90,7 +90,7 @@ public class HelloWorldController {
 - **`@RequestMapping("/hello-world")`** define o caminho base que esse controller escuta.
 - **`@GetMapping`** mapeia o método para o verbo HTTP GET. Sem indicar o verbo, o Spring não sabe se o método responde a GET, POST, DELETE etc.
 
-Ao executar a aplicação (botão Run no IntelliJ), o servidor embutido **Tomcat** sobe na porta **8080**. Acessando `http://localhost:8080/hello-world` no navegador, você vê a string retornada. Um caminho inexistente devolve a página de erro genérica **Whitelabel** (404) — que expõe a stack trace e idealmente deve ser tratada depois.
+Ao executar a aplicação (botão Run no IntelliJ), o servidor embutido **Tomcat** sobe na porta **8080**. Acessando `http://localhost:8080/hello-world` no navegador, você vê a string retornada. Um caminho inexistente devolve a página de erro genérica **Whitelabel** (404), que expõe a stack trace e idealmente deve ser tratada depois.
 
 > 🎥 No vídeo: [13:00](https://youtu.be/YY_hf0FOIcU?t=780s)
 
@@ -141,7 +141,7 @@ public class HelloWorldService {
 }
 ```
 
-A anotação **`@Service`** indica ao Spring que essa classe é gerenciada por ele. Assim, qualquer classe que precisar dela recebe a instância automaticamente — esse é o coração do Spring: o **IoC Container** cria e **injeta** os beans, você nunca dá `new` nele.
+A anotação **`@Service`** indica ao Spring que essa classe é gerenciada por ele. Assim, qualquer classe que precisar dela recebe a instância automaticamente, esse é o coração do Spring: o **IoC Container** cria e **injeta** os beans, você nunca dá `new` nele.
 
 Há duas formas de injetar a dependência no Controller:
 
@@ -178,7 +178,7 @@ private HelloWorldService helloWorldService;
 
 ## Classes de Configuração e `@Bean`
 
-O Spring gerencia automaticamente as classes *suas* (anotadas como component/service/controller). Mas às vezes você precisa que ele injete uma classe **externa** — de uma biblioteca de terceiros (ex.: SDK da AWS ou Oracle) ou uma implementação específica de uma interface. Nesses casos, use uma classe **`@Configuration`** com métodos anotados com **`@Bean`**:
+O Spring gerencia automaticamente as classes *suas* (anotadas como component/service/controller). Mas às vezes você precisa que ele injete uma classe **externa**, de uma biblioteca de terceiros (ex.: SDK da AWS ou Oracle) ou uma implementação específica de uma interface. Nesses casos, use uma classe **`@Configuration`** com métodos anotados com **`@Bean`**:
 
 ```java
 @Configuration
@@ -203,7 +203,7 @@ Outro uso clássico é escolher qual implementação de uma interface injetar (e
 
 Esses são os mecanismos mais importantes para construir APIs.
 
-### `@RequestBody` — corpo da requisição
+### `@RequestBody`: corpo da requisição
 
 Usado em endpoints `POST` (criação de recursos), onde o cliente envia um JSON no corpo. O Spring injeta e mapeia o corpo para uma classe do seu domínio.
 
@@ -236,7 +236,7 @@ public String helloWorldPost(@RequestBody User body) {
 }
 ```
 
-### `@PathVariable` — valores na URL
+### `@PathVariable`: valores na URL
 
 Para extrair um valor do próprio caminho, ex.: `/hello-world/{id}`:
 
@@ -247,7 +247,7 @@ public String helloWorldPost(@PathVariable String id, @RequestBody User body) {
 }
 ```
 
-### `@RequestParam` — parâmetros de consulta (query params)
+### `@RequestParam`: parâmetros de consulta (query params)
 
 Para extrair os valores depois do `?` na URL, ex.: `?filter=video`:
 
@@ -263,7 +263,7 @@ public String helloWorldPost(@RequestParam(value = "filter", defaultValue = "") 
 
 > 🎥 No vídeo: [42:00](https://youtu.be/YY_hf0FOIcU?t=2520s)
 
-## Anotações e camadas — visão geral
+## Anotações e camadas: visão geral
 
 | Anotação | Papel |
 | --- | --- |

@@ -8,7 +8,7 @@ Depois de dominar os fundamentos e a POO, o passo intermediário é conhecer as 
 
 **Packages** servem para organizar suas classes de forma **hierárquica** dentro do projeto. A estrutura dos packages reflete a estrutura de pastas, e isso é importante para a manutenção do código: cada package representa uma entidade, funcionalidade ou responsabilidade, o que separa responsabilidades e ainda evita conflito de nomes (você pode ter duas classes com o mesmo nome em packages diferentes).
 
-Quando você cria um projeto, a IDE já adiciona a declaração de `package` no topo da classe, respeitando o caminho das pastas a partir do **group** definido na criação do projeto. Pastas padrão como `src`, `main`, `java` e `resources` são ignoradas no nome do package — elas dizem respeito à estrutura geral do projeto (código-fonte, testes, recursos como JSON/imagens/HTML), não à hierarquia das suas classes.
+Quando você cria um projeto, a IDE já adiciona a declaração de `package` no topo da classe, respeitando o caminho das pastas a partir do **group** definido na criação do projeto. Pastas padrão como `src`, `main`, `java` e `resources` são ignoradas no nome do package, elas dizem respeito à estrutura geral do projeto (código-fonte, testes, recursos como JSON/imagens/HTML), não à hierarquia das suas classes.
 
 ```java
 package com.kipper.javacourse.carro;
@@ -34,10 +34,10 @@ public class Carro {
 }
 ```
 
-- **`public`** — visível para qualquer classe, dentro ou fora do package.
-- **sem modificador (package-private)** — visível **só** para classes do **mesmo package**. Uma classe em outro package (ex.: `Pessoa` em `com.kipper.javacourse.pessoa`) não enxerga `modelo` nem chama `teste()` (erro: *"is not public in ... cannot be accessed from outside package"*).
-- **`private`** — visível só dentro da própria classe; nem classes do mesmo package acessam.
-- **`protected`** — visível no mesmo package **e** nas subclasses, mesmo que a subclasse esteja em outro package.
+- **`public`**: visível para qualquer classe, dentro ou fora do package.
+- **sem modificador (package-private)**: visível **só** para classes do **mesmo package**. Uma classe em outro package (ex.: `Pessoa` em `com.kipper.javacourse.pessoa`) não enxerga `modelo` nem chama `teste()` (erro: *"is not public in ... cannot be accessed from outside package"*).
+- **`private`**: visível só dentro da própria classe; nem classes do mesmo package acessam.
+- **`protected`**: visível no mesmo package **e** nas subclasses, mesmo que a subclasse esteja em outro package.
 
 > 📌 **package-private vs `protected`:** olhando de fora parecem iguais (ambos visíveis dentro do package). A diferença está nas **subclasses**: `protected` continua visível em uma subclasse de outro package; package-private não.
 
@@ -45,14 +45,14 @@ public class Carro {
 
 > 🎥 No vídeo: [10:50](https://youtu.be/jLropHUgI1A?t=650s)
 
-O **Java Collections Framework** é o framework que exporta um conjunto de **interfaces** e **classes** para armazenar, organizar e manipular grupos de objetos. Os quatro tipos principais são interfaces — a implementação concreta é uma classe à parte:
+O **Java Collections Framework** é o framework que exporta um conjunto de **interfaces** e **classes** para armazenar, organizar e manipular grupos de objetos. Os quatro tipos principais são interfaces, a implementação concreta é uma classe à parte:
 
-- **`Map`** — estrutura de **chave → valor** (como os objetos do JavaScript ou os dicionários do Python).
-- **`Set`** — coleção que **não permite duplicatas**.
-- **`List`** — lista **ordenada** que **permite elementos duplicados**.
-- **`Queue`** — **fila**, usada para processamento em ordem (o primeiro que entra é o primeiro a sair).
+- **`Map`**: estrutura de **chave → valor** (como os objetos do JavaScript ou os dicionários do Python).
+- **`Set`**: coleção que **não permite duplicatas**.
+- **`List`**: lista **ordenada** que **permite elementos duplicados**.
+- **`Queue`**: **fila**, usada para processamento em ordem (o primeiro que entra é o primeiro a sair).
 
-### List — ordenada, aceita duplicados
+### List: ordenada, aceita duplicados
 
 `List.of(...)` cria uma lista já com valores fixos. Quando os valores vão chegar dinamicamente, use `new ArrayList<>()` e vá adicionando:
 
@@ -65,7 +65,7 @@ lista.get(0);               // recupera pelo índice (ordem de inserção)
 
 `ArrayList` é rápido para leitura por índice; `LinkedList` é melhor para muitas inserções/remoções no meio.
 
-### Set — sem duplicados
+### Set: sem duplicados
 
 `HashSet` é a implementação mais comum da interface `Set`. Internamente usa uma **hash table** (tabela de dispersão), técnica geral da computação que evita colisões e dá eficiência nas operações de adição, remoção e verificação de existência.
 
@@ -73,12 +73,12 @@ lista.get(0);               // recupera pelo índice (ordem de inserção)
 Set<String> setStrings = new HashSet<>();
 setStrings.add("Fernanda");
 setStrings.add("Fernanda");          // ignorado: já existe (a IDE avisa "duplicate")
-setStrings.contains("Fernanda");     // true — é assim que se verifica um valor no Set
+setStrings.contains("Fernanda");     // true, é assim que se verifica um valor no Set
 ```
 
 `HashSet` não garante ordem; `LinkedHashSet` mantém a ordem de inserção; `TreeSet` mantém ordenado. Como `Set` é uma interface, você poderia criar sua própria implementação, mas o comum é usar `HashSet`.
 
-### Map — pares chave → valor
+### Map: pares chave → valor
 
 No `Map` você precisa tipar **a chave e o valor** (diferente de `List`/`Set`, que têm um tipo só). `HashMap` é a implementação mais popular (também baseada em hash table):
 
@@ -87,12 +87,12 @@ Map<String, String> map = new HashMap<>();
 map.put("name", "Fernanda");      // put = chave, valor
 map.put("surname", "Kipper");
 map.get("name");                  // "Fernanda"
-map.get("teste");                 // null — chave inexistente NÃO dá erro, retorna null
+map.get("teste");                 // null, chave inexistente NÃO dá erro, retorna null
 ```
 
-> 📌 Recuperar uma chave que não existe retorna `null` (não lança exceção). Cuidado ao reutilizar esse valor — verifique se não veio `null`.
+> 📌 Recuperar uma chave que não existe retorna `null` (não lança exceção). Cuidado ao reutilizar esse valor, verifique se não veio `null`.
 
-### Queue — fila (FIFO)
+### Queue: fila (FIFO)
 
 Uma fila pode ser implementada com `LinkedList` (lista duplamente encadeada, em que cada posição aponta para a próxima e a anterior). A interface `Queue` expõe métodos de fila:
 
@@ -106,7 +106,7 @@ fila.peek();     // só ESPIA o primeiro, sem remover
 fila.remove();   // remove o primeiro, mas LANÇA exceção se a fila estiver vazia
 ```
 
-> 📌 `poll` vs `remove`: ambos pegam e removem a cabeça da fila. A diferença é só o caso da fila vazia — `poll` retorna `null`, `remove` lança exceção.
+> 📌 `poll` vs `remove`: ambos pegam e removem a cabeça da fila. A diferença é só o caso da fila vazia, `poll` retorna `null`, `remove` lança exceção.
 
 A mesma `LinkedList`, se tipada diretamente como `LinkedList<>` (em vez de `Queue<>`), expõe mais métodos de lista encadeada pura: `addFirst`, `addLast`, `getFirst`, `getLast`, `pollFirst`, `pollLast`.
 
@@ -126,7 +126,7 @@ A mesma `LinkedList`, se tipada diretamente como `LinkedList<>` (em vez de `Queu
 
 Você já vinha usando generics sem saber: quando declarou `Queue<String>` ou `Map<String, String>`, passou o **tipo por parâmetro**. Generics são **tipos parametrizados** que permitem criar classes, interfaces e métodos reutilizáveis por diferentes tipos, mantendo a segurança em tempo de compilação.
 
-A interface `Queue<E>` recebe um *type parameter* `E` (o tipo dos elementos da fila). Por isso você não precisa de uma fila para `String`, outra para `Integer`, outra para `Boolean` — o comportamento é o mesmo, só o tipo muda.
+A interface `Queue<E>` recebe um *type parameter* `E` (o tipo dos elementos da fila). Por isso você não precisa de uma fila para `String`, outra para `Integer`, outra para `Boolean`, o comportamento é o mesmo, só o tipo muda.
 
 ```java
 public class Caixa<T> {
@@ -161,7 +161,7 @@ public class Pintura<T extends Pintavel> {
 }
 ```
 
-Assim `Pintura` aceita um `Carro`, uma `Parede`, uma `Bicicleta` — qualquer coisa que implemente `Pintavel`. A letra do parâmetro (`T`, `E`, etc.) é livre; por convenção usa-se um único caractere. Generics não são exclusivos do Java; quem já usou TypeScript vai reconhecer o conceito.
+Assim `Pintura` aceita um `Carro`, uma `Parede`, uma `Bicicleta`, qualquer coisa que implemente `Pintavel`. A letra do parâmetro (`T`, `E`, etc.) é livre; por convenção usa-se um único caractere. Generics não são exclusivos do Java; quem já usou TypeScript vai reconhecer o conceito.
 
 ## Records
 
@@ -177,11 +177,11 @@ saveiro.ano();      // getter automático (sem "get"), retorna 2020
 // saveiro.ano = 2021;  // ERRO: record é imutável
 ```
 
-Não há setters (seria contra a imutabilidade), e os getters não levam o prefixo `get` — são o próprio nome do atributo.
+Não há setters (seria contra a imutabilidade), e os getters não levam o prefixo `get`, são o próprio nome do atributo.
 
 **Para que servem, se não posso alterar os valores?** Records são muito usados para:
 
-- **DTOs (Data Transfer Objects)** — dados que você **recebe uma vez** (ex.: o corpo de uma requisição HTTP no seu controller) e não vai alterar, só consultar/usar. Usar records para DTOs tem sido o padrão na comunidade.
+- **DTOs (Data Transfer Objects)**: dados que você **recebe uma vez** (ex.: o corpo de uma requisição HTTP no seu controller) e não vai alterar, só consultar/usar. Usar records para DTOs tem sido o padrão na comunidade.
 - **POJOs** (Plain Old Java Objects) imutáveis e value objects em geral.
 
 ## Stream API
@@ -209,9 +209,9 @@ List<String> fernandas = nomes.stream()        // vira uma stream
 
 Operações comuns:
 
-- **`filter`** — mantém só os elementos que passam na condição.
-- **`map`** — transforma cada elemento em outra coisa (ex.: `nome -> nome.toUpperCase()`, ou a forma mais concisa por *method reference* `String::toUpperCase`).
-- **`reduce`** — combina todos os elementos em um único valor. Recebe um valor inicial (`0` para somar inteiros, `""` para concatenar strings) e já retorna o tipo reduzido, sem precisar de `toString` no final:
+- **`filter`**: mantém só os elementos que passam na condição.
+- **`map`**: transforma cada elemento em outra coisa (ex.: `nome -> nome.toUpperCase()`, ou a forma mais concisa por *method reference* `String::toUpperCase`).
+- **`reduce`**: combina todos os elementos em um único valor. Recebe um valor inicial (`0` para somar inteiros, `""` para concatenar strings) e já retorna o tipo reduzido, sem precisar de `toString` no final:
 
 ```java
 String concatenado = nomes.stream()
@@ -219,7 +219,7 @@ String concatenado = nomes.stream()
     .reduce("", (a, b) -> a + b);   // junta tudo numa única String
 ```
 
-- **`collect`** — materializa em outras collections além de `List`:
+- **`collect`**: materializa em outras collections além de `List`:
 
 ```java
 Set<String> set = nomes.stream()

@@ -24,7 +24,7 @@ O Tailwind deixou de ser uma biblioteca usada só por devs que gostam de testar 
 
 Existem duas maneiras de adicionar o Tailwind ao projeto:
 
-**1. Via CDN** — serve para projetos só de HTML e é ótima para testar/aprender, mas **não é recomendada para produção**: ao importar via CDN você acaba importando **todas** as classes do Tailwind, mesmo que use só algumas. Isso fica pesado e pouco eficiente.
+**1. Via CDN**, serve para projetos só de HTML e é ótima para testar/aprender, mas **não é recomendada para produção**: ao importar via CDN você acaba importando **todas** as classes do Tailwind, mesmo que use só algumas. Isso fica pesado e pouco eficiente.
 
 ```html
 <head>
@@ -32,7 +32,7 @@ Existem duas maneiras de adicionar o Tailwind ao projeto:
 </head>
 ```
 
-**2. Via npm/Yarn (recomendada)** — no momento do **build**, o Tailwind gera o CSS **somente com as classes que você usou** e descarta o resto. O bundle final fica muito menor e mais otimizado.
+**2. Via npm/Yarn (recomendada)**, no momento do **build**, o Tailwind gera o CSS **somente com as classes que você usou** e descarta o resto. O bundle final fica muito menor e mais otimizado.
 
 ```bash
 npm install tailwindcss @tailwindcss/cli
@@ -55,7 +55,7 @@ Esta é a ideia central do Tailwind: **toda propriedade CSS tem uma classe equiv
 
 No CSS você faria `margin: 16px`. No Tailwind, a classe da margem é só `m` (não precisa escrever "margin"), seguida do valor: `m-4`.
 
-> ⚠️ O Tailwind **não trabalha com pixels por padrão** — ele usa uma **escala de `rem`**. E `m-4` **não** é `4rem`: cada unidade da escala vale `0.25rem`. Então `m-4` = `4 × 0.25rem` = `1rem` = **16px**.
+> ⚠️ O Tailwind **não trabalha com pixels por padrão**, ele usa uma **escala de `rem`**. E `m-4` **não** é `4rem`: cada unidade da escala vale `0.25rem`. Então `m-4` = `4 × 0.25rem` = `1rem` = **16px**.
 
 | Classe | Valor | Em pixels |
 | --- | --- | --- |
@@ -73,7 +73,7 @@ Se você **realmente** precisar de um valor cru (hard coded), use colchetes: `m-
 
 ## Espaçamentos: margin e padding
 
-A margem é `m` e o padding é `p`. Para controlar lados e eixos específicos, você combina sufixos — sempre lembrando que **toda propriedade CSS tem uma classe correspondente**:
+A margem é `m` e o padding é `p`. Para controlar lados e eixos específicos, você combina sufixos, sempre lembrando que **toda propriedade CSS tem uma classe correspondente**:
 
 | Sufixo | Significado |
 | --- | --- |
@@ -113,7 +113,7 @@ O sistema de cores é controlado por uma **escala de intensidade**, de `50` (mai
 <h1 class="text-green-600">texto verde</h1>
 ```
 
-> ⚠️ `white` e `black` **não têm intensidade** — são só `bg-white`, `text-black`. Já cores como `red` **exigem** a intensidade: `text-red` sozinho **não funciona**, tem que ser `text-red-500`.
+> ⚠️ `white` e `black` **não têm intensidade**, são só `bg-white`, `text-black`. Já cores como `red` **exigem** a intensidade: `text-red` sozinho **não funciona**, tem que ser `text-red-500`.
 
 Na grande maioria das vezes essa escala já é suficiente. Se precisar de uma cor personalizada pontual, use colchetes com o valor cru: `bg-[#ffffff]`. (Para registrar cores próprias como variáveis, dá para personalizar a configuração do Tailwind.)
 
@@ -130,15 +130,15 @@ Diferente dos espaçamentos (que usam números), o tamanho da fonte usa uma esca
 | `text-xs` | extra small | 0.75rem (12px) |
 | `text-base` | padrão | 1rem (16px) |
 | `text-lg` | large | 1.125rem (18px) |
-| `text-2xl` ... `text-9xl` | cada vez maior | — |
+| `text-2xl` ... `text-9xl` | cada vez maior |, |
 
-> 💡 As classes `text-xs`, `text-lg`, etc. já aplicam automaticamente um **`line-height` (leading)** correspondente ao tamanho da fonte — o Tailwind faz esse cálculo para você.
+> 💡 As classes `text-xs`, `text-lg`, etc. já aplicam automaticamente um **`line-height` (leading)** correspondente ao tamanho da fonte, o Tailwind faz esse cálculo para você.
 
 ### Estilo e peso da fonte
 
 Alguns estilos são aplicados direto pelo nome: `italic`, `underline`.
 
-> ⚠️ `bold` **sozinho não funciona** como classe — ele é **peso de fonte** (`font-weight`), então é `font-bold`. Pesos vão de fino a grosso: `font-thin`, `font-medium`, `font-bold`.
+> ⚠️ `bold` **sozinho não funciona** como classe, ele é **peso de fonte** (`font-weight`), então é `font-bold`. Pesos vão de fino a grosso: `font-thin`, `font-medium`, `font-bold`.
 
 ### Espaçamento entre letras (`tracking-`)
 
@@ -158,7 +158,7 @@ Equivale ao `line-height`. Segue a mesma lógica numérica de margin/padding: `l
 
 ## Displays: Flexbox e Grid
 
-Cada classe equivale a uma propriedade CSS. A classe `flex` é o equivalente a `display: flex`. **Nada é magia do Tailwind** — é o comportamento padrão do CSS, só com classes equivalentes.
+Cada classe equivale a uma propriedade CSS. A classe `flex` é o equivalente a `display: flex`. **Nada é magia do Tailwind**, é o comportamento padrão do CSS, só com classes equivalentes.
 
 ### Flexbox
 
@@ -180,7 +180,7 @@ Cada classe equivale a uma propriedade CSS. A classe `flex` é o equivalente a `
 - `items-center` / `items-start` → `align-items`
 - `justify-center` / `justify-between` → `justify-content`
 
-> 💡 Lembre que `flex` puro já é `row` (CSS), então os itens ficam lado a lado. Para centralizar **texto** dentro da caixa, use `text-center` — é propriedade de texto, não da caixa.
+> 💡 Lembre que `flex` puro já é `row` (CSS), então os itens ficam lado a lado. Para centralizar **texto** dentro da caixa, use `text-center`, é propriedade de texto, não da caixa.
 
 ### Grid
 
@@ -238,9 +238,9 @@ Você pode aplicar **qualquer** propriedade condicionada ao estado: cor, espaça
 
 > 🎥 No vídeo: [34:35](https://youtu.be/DL3IPyEXRKU?t=2075s)
 
-## Responsividade (media queries) — mobile-first
+## Responsividade (media queries): mobile-first
 
-O Tailwind já vem com **breakpoints** padrão — pontos de separação que medem o tamanho da tela para decidir qual classe aplicar. Para aplicar uma classe só a partir de um breakpoint, prefixe com ele:
+O Tailwind já vem com **breakpoints** padrão, pontos de separação que medem o tamanho da tela para decidir qual classe aplicar. Para aplicar uma classe só a partir de um breakpoint, prefixe com ele:
 
 ```html
 <!-- fundo cinza só em telas grandes (>= 1024px) -->
@@ -255,8 +255,8 @@ O Tailwind já vem com **breakpoints** padrão — pontos de separação que med
 | `sm:` | 640px | (pequeno) |
 | `md:` | 768px | tablet |
 | `lg:` | 1024px | desktop |
-| `xl:` | 1280px | — |
-| `2xl:` | 1536px | — |
+| `xl:` | 1280px |, |
+| `2xl:` | 1536px |, |
 
 > 💡 **Mobile-first**: classes **sem prefixo** valem para todas as telas (são o seu layout de celular). Os prefixos aplicam **de um breakpoint para cima**. Assim você estiliza o mobile primeiro e só ajusta para telas maiores.
 
@@ -266,14 +266,14 @@ O Tailwind já vem com **breakpoints** padrão — pontos de separação que med
 
 ## Instalação real em projeto React / Next / Angular
 
-Todas as classes que você viu continuam funcionando igual — o que muda é só a **instalação inicial**.
+Todas as classes que você viu continuam funcionando igual, o que muda é só a **instalação inicial**.
 
 Num projeto Next/React, o `package.json` traz dois pacotes (como **devDependencies**, porque só são usados no build):
 
 - **`tailwindcss`** → traz todas as classes utilitárias.
 - **`@tailwindcss/postcss`** → faz o processamento dessas classes e garante que o build final saia certinho (só com as classes usadas).
 
-No **arquivo global de CSS** do projeto, faça o import — sem isso as classes não funcionam:
+No **arquivo global de CSS** do projeto, faça o import, sem isso as classes não funcionam:
 
 ```css
 @import "tailwindcss";
@@ -326,7 +326,7 @@ Quando um conjunto de classes se repete muito:
 }
 ```
 
-> ⚠️ Evite usar `@apply` para tudo — isso desfaz a vantagem do utility-first. Prefira componentes.
+> ⚠️ Evite usar `@apply` para tudo, isso desfaz a vantagem do utility-first. Prefira componentes.
 
 ## Resumo
 

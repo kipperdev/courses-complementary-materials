@@ -2,10 +2,10 @@
 
 Antes de colocar a mão no código, vale entender quatro características que definem o Java, porque elas influenciam diretamente a forma como a gente pensa ao escrever um programa:
 
-1. **Orientada a objetos** — toda a sintaxe gira em torno de **classes e objetos**. Diferente de linguagens multiparadigma como JavaScript (que permite procedural, funcional ou OO), o Java te **força** a seguir esse paradigma.
-2. **Fortemente tipada** — toda variável, parâmetro e retorno tem um tipo declarado, e esse tipo **não muda** ao longo da execução. Em JavaScript você pode reatribuir uma string com um número; em Java isso é erro de compilação.
-3. **Independente de plataforma** — um mesmo código compilado roda em diferentes sistemas operacionais e arquiteturas ("write once, run anywhere"), algo que o Java foi um dos precursores em popularizar.
-4. **Compilada e interpretada ao mesmo tempo** — você compila o `.java` para **bytecode** (`.class`), e a **JVM** interpreta esse bytecode em tempo de execução.
+1. **Orientada a objetos**, toda a sintaxe gira em torno de **classes e objetos**. Diferente de linguagens multiparadigma como JavaScript (que permite procedural, funcional ou OO), o Java te **força** a seguir esse paradigma.
+2. **Fortemente tipada**, toda variável, parâmetro e retorno tem um tipo declarado, e esse tipo **não muda** ao longo da execução. Em JavaScript você pode reatribuir uma string com um número; em Java isso é erro de compilação.
+3. **Independente de plataforma**, um mesmo código compilado roda em diferentes sistemas operacionais e arquiteturas ("write once, run anywhere"), algo que o Java foi um dos precursores em popularizar.
+4. **Compilada e interpretada ao mesmo tempo**, você compila o `.java` para **bytecode** (`.class`), e a **JVM** interpreta esse bytecode em tempo de execução.
 
 ```bash
 javac Main.java   # compila para bytecode (.class)
@@ -54,7 +54,7 @@ idade = 21; // pode atualizar o valor, mas NUNCA o tipo
 var nome = "Fernanda"; // inferido como String
 ```
 
-> 📌 Pontos importantes: na forma `var`, a atribuição do valor é **obrigatória na declaração** (sem valor, o Java não tem como inferir o tipo). E, por ser fortemente tipada, `idade = "Fernanda"` dá erro de compilação — o tipo da variável não muda depois de declarada.
+> 📌 Pontos importantes: na forma `var`, a atribuição do valor é **obrigatória na declaração** (sem valor, o Java não tem como inferir o tipo). E, por ser fortemente tipada, `idade = "Fernanda"` dá erro de compilação, o tipo da variável não muda depois de declarada.
 
 > 🎥 Aula 1: [13:20](https://youtu.be/nODe5lFcGpg?t=800s) · Aula 2: [09:10](https://youtu.be/EpXYPB1rv4w?t=550s)
 
@@ -80,7 +80,7 @@ char   letra  = 'A';    // UM caractere, aspas SIMPLES
 boolean ativo = true;
 ```
 
-> 📌 Por que existem 4 inteiros? Para **economizar memória**: se o valor cabe num `byte`, usar `long` desperdiça bits. Na prática a galera usa `int` para quase tudo e `long` quando o número é muito grande. Para decimais, `double` (mais preciso) ou `float` (precisão simples). `char` usa **aspas simples**; já a `String` usa **aspas duplas** e **não é um tipo primitivo** — é uma **classe** auxiliar do Java.
+> 📌 Por que existem 4 inteiros? Para **economizar memória**: se o valor cabe num `byte`, usar `long` desperdiça bits. Na prática a galera usa `int` para quase tudo e `long` quando o número é muito grande. Para decimais, `double` (mais preciso) ou `float` (precisão simples). `char` usa **aspas simples**; já a `String` usa **aspas duplas** e **não é um tipo primitivo**, é uma **classe** auxiliar do Java.
 
 > 🎥 Aula 1: [17:30](https://youtu.be/nODe5lFcGpg?t=1050s) · Aula 2: [12:05](https://youtu.be/EpXYPB1rv4w?t=725s)
 
@@ -182,13 +182,13 @@ String texto = String.valueOf('A'); // char -> String
 char c = "Java".charAt(0);        // String -> char
 ```
 
-> 📌 Nem todo valor é convertível: transformar `"Fernanda"` em `int` não faz sentido e gera erro. Como a instrutora resume, "não dá para transformar uma banana em leite" — primeiro avalie se a conversão faz sentido.
+> 📌 Nem todo valor é convertível: transformar `"Fernanda"` em `int` não faz sentido e gera erro. Como a instrutora resume, "não dá para transformar uma banana em leite", primeiro avalie se a conversão faz sentido.
 
 > 🎥 Aula 1: [46:15](https://youtu.be/nODe5lFcGpg?t=2775s) · Aula 2: [27:30](https://youtu.be/EpXYPB1rv4w?t=1650s)
 
 ## Programação Orientada a Objetos (POO)
 
-A POO organiza o código em torno de **objetos**, que combinam dados (**atributos** — as variáveis da classe) e comportamento (**métodos** — as funções da classe). Uma **classe** é o **molde** que define a estrutura; o **objeto** é a **instância** criada com `new`.
+A POO organiza o código em torno de **objetos**, que combinam dados (**atributos**, as variáveis da classe) e comportamento (**métodos**, as funções da classe). Uma **classe** é o **molde** que define a estrutura; o **objeto** é a **instância** criada com `new`.
 
 ```java
 public class Carro {
@@ -306,7 +306,7 @@ public class Fusca implements Carro {
 }
 ```
 
-> 📌 Na **interface** a gente só define a "casquinha" — a **assinatura** dos métodos, sem corpo. A classe que `implements` a interface é obrigada a implementar esses métodos, seguindo o contrato.
+> 📌 Na **interface** a gente só define a "casquinha", a **assinatura** dos métodos, sem corpo. A classe que `implements` a interface é obrigada a implementar esses métodos, seguindo o contrato.
 
 ### Classe abstrata x Interface
 
@@ -355,7 +355,7 @@ package javacurso; // declarado no topo do arquivo, espelha a pasta
 | (padrão / *default*) | apenas no mesmo pacote |
 | `private` | apenas na própria classe |
 
-> 📌 Quando você **não** coloca modificador, vale o **default** (*package-private*): visível só no mesmo pacote — nem subpacotes enxergam. A classe pública de um arquivo **tem que** ter o mesmo nome do arquivo. Um membro `private` só é acessível dentro da própria classe, mesmo por outras classes do mesmo arquivo.
+> 📌 Quando você **não** coloca modificador, vale o **default** (*package-private*): visível só no mesmo pacote, nem subpacotes enxergam. A classe pública de um arquivo **tem que** ter o mesmo nome do arquivo. Um membro `private` só é acessível dentro da própria classe, mesmo por outras classes do mesmo arquivo.
 
 > 🎥 Aula 1: [67:55](https://youtu.be/nODe5lFcGpg?t=4075s) · Aula 2: [41:15](https://youtu.be/EpXYPB1rv4w?t=2475s)
 
