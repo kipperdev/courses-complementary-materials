@@ -1,0 +1,8 @@
+# modelo word2vec PT-BR (~1.3 GB) — baixar separadamente, ver README
+skip_s300.txt
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
