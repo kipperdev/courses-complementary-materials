@@ -2,6 +2,8 @@
 
 Demonstração prática do vídeo **"Por que o Word2Vec não entende contexto? (E como Self-Attention resolveu)"**.
 
+📺 Vídeo: https://youtu.be/xlV_VwItkKA
+
 A demo mostra, com resultados reais, as **duas falhas exatas do Word2Vec** (tabela do Stanford CME 295, slide 64):
 1. **Embeddings não são context-aware** — a palavra "banco" tem um único vetor fixo, independente do contexto.
 2. **A ordem das palavras não conta** — CBOW trata a frase como um "saco de palavras".
